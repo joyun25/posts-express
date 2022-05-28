@@ -41,7 +41,7 @@ const posts = {
       const id = req.params.id;
       if (await Post.findById(`${id}`) !== null){
         if(body.content || body.name){
-          const updatePost = await Post.findByIdAndUpdate(`${id}`, data);
+          const updatePost = await Post.findByIdAndUpdate(`${id}`, body);
           successHandle(res, updatePost);
         }else{
           errorHandle(res, "請至少填寫姓名或內容");
